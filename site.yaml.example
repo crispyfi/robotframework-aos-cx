@@ -1,0 +1,98 @@
+# Global:
+#   site_name                         Site identifier
+#   software_version                  software: expected firmware version on all devices
+#   ntp_servers                       List of NTP server addresses
+#   syslog_server                     Syslog server address
+#   domain_name                       DNS domain name
+#   dns_servers                       List of DNS server addresses
+#   primary_radius_server             aaa_port_access: primary RADIUS server name
+#   secondary_radius_server           aaa_port_access: secondary RADIUS server name
+#   primary_radius_ip                 aaa_port_access: primary RADIUS server IP (for CoA)
+#   secondary_radius_ip               aaa_port_access: secondary RADIUS server IP (for CoA)
+#   mstp_config_digest                spanning_tree: expected MSTP region config digest (hex string)
+#   cpu_threshold                     environment: CPU utilisation upper bound (%)
+#   memory_threshold                  environment: memory utilisation upper bound (%)
+#   timezone                          Expected timezone
+#   physical_mtu                      interfaces: expected MTU on every physical port
+#   vlan_ip_mtu                       interfaces: expected IP MTU on every SVI
+#   igmp_version                      multicast: expected IGMP version
+#   login_banner_prefix               hardening: required prefix on login banner
+#   controlplane_acl_name             hardening: control-plane ACL name
+#   ospf_graceful_restart_interval    ospf: graceful restart interval (s)
+#   ospf_route_min_age                ospf: minimum acceptable route age (s)
+#
+# Per-device:
+#   hostname              Human-readable label (informational only)
+#   ip                    Management IP
+#   persona               One of: core | access
+#   management_vrf        Management VRF name (e.g. MANAGEMENT or default)
+#
+# Core-only:
+#   mstp_root_instances   spanning_tree: MST instance numbers this device is root for
+#
+# Access-only:
+#   vsf_members           vsf/environment: integer count of VSF stack members
+#   uplink_lag            interfaces/hardening: name of the uplink LAG (e.g. lag1)
+
+
+site_name: MOON
+api_version: "v10.16"
+software_version: "10.16.1030"
+
+ntp_servers:
+  - PLACEHOLDER
+  - PLACEHOLDER
+  - PLACEHOLDER
+syslog_server: PLACEHOLDER
+domain_name: PLACEHOLDER
+dns_servers:
+  - PLACEHOLDER
+  - PLACEHOLDER
+
+primary_radius_server: PLACEHOLDER
+secondary_radius_server: PLACEHOLDER
+primary_radius_ip: PLACEHOLDER
+secondary_radius_ip: PLACEHOLDER
+
+mstp_config_digest: PLACEHOLDER
+
+cpu_threshold: 70
+memory_threshold: 70
+timezone: Australia/NSW
+
+physical_mtu: 9198
+vlan_ip_mtu: 9198
+
+igmp_version: 3
+
+login_banner_prefix: "UNAUTHORISED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED"
+controlplane_acl_name: CONTROLPLANE
+
+ospf_graceful_restart_interval: 300
+ospf_route_min_age: 300
+
+
+devices:
+
+  # ── Core (VSX pair) ─────────────────────────────────────────────────────────
+
+  - hostname: PLACEHOLDER
+    ip: PLACEHOLDER
+    persona: core
+    management_vrf: MANAGEMENT
+    mstp_root_instances: [0]
+
+  - hostname: PLACEHOLDER
+    ip: PLACEHOLDER
+    persona: core
+    management_vrf: MANAGEMENT
+    mstp_root_instances: [0]
+
+  # ── Access Stacks ───────────────────────────────────────────────────────────
+
+  - hostname: PLACEHOLDER
+    ip: PLACEHOLDER
+    persona: access
+    management_vrf: default
+    vsf_members: 3
+    uplink_lag: lag1

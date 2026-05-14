@@ -1,0 +1,27 @@
+[project]
+name = "robotframework-aos-cx"
+version = "0.1.0"
+description = "HPE Aruba Networking AOS-CX Switch System Acceptance Testing"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [
+    { name = "NTT Australia Pty Limited" },
+]
+maintainers = [
+    { name = "Chris Denham"},
+]
+dependencies = [
+    "python-dotenv",
+    "pyyaml",
+    "robotframework",
+]
+
+[project.urls]
+Homepage = "https://github.com/crispyfi/robotframework-aos-cx"
+Repository = "https://github.com/crispyfi/robotframework-aos-cx"
+Issues = "https://github.com/crispyfi/robotframework-aos-cx/issues"
+
+[tool.uv]
+package = false
