@@ -40,6 +40,17 @@ cp site.yaml.example site.yaml
 ```
 Update `.env` and `site.yaml`.
 
+## site.yaml
+
+`site.yaml` describes your site and the devices under test. It has two parts:
+
+- **Global keys** — site-wide expected values shared by every suite (firmware version, NTP / DNS / syslog servers, RADIUS servers, MSTP digest, CPU / memory thresholds, MTUs, etc.). Each key's leading comment in `site.yaml.example` names the suite that consumes it.
+- **`devices:` list** — one entry per switch. Every device needs `hostname`, `ip`, `persona` (`core` or `access`), and `management_vrf`. Core devices also take `mstp_root_instances`; access stacks also take `vsf_members` and `uplink_lag`.
+
+The `persona` tag drives which test cases run against each device — see [Persona model](#persona-model) above. `verify.py` reads `site.yaml`, so `-d <hostname>` and `-p <persona>` match against the values here.
+
+`site.yaml.example` is the annotated template: copy it to `site.yaml`, replace every `PLACEHOLDER`, and add or remove device entries to match your fleet.
+
 ## Run
 
 ```sh
