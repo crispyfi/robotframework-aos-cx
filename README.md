@@ -33,6 +33,8 @@ Every device in `site.yaml` is tagged `persona: core` or `persona: access`. `ver
 
 ## Setup
 
+This project uses [uv](https://docs.astral.sh/uv/) — see the [installation guide](https://docs.astral.sh/uv/getting-started/installation/) if you don't have it yet.
+
 ```sh
 uv sync
 cp .env.example .env
@@ -66,6 +68,10 @@ Each run drops its artefacts into `output/<hostname>/<YYYYMMDD-HHMMSS>/`. Open `
 ## Example Output
 
 <img width="435" height="389" alt="image" src="https://github.com/user-attachments/assets/415f6010-7bd2-4d01-be6e-16cc6261f9d7" />
+
+## MCP tool catalogue
+
+[`docs/mcp-tool-catalogue.md`](docs/mcp-tool-catalogue.md) maps every check in this repo to the AOS-CX REST endpoints and fields it reads — a reference for porting these checks to HPE Central's MCP server.
 
 ## License
 
